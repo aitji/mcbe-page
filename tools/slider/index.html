@@ -188,114 +188,114 @@
     </div>
 
     <script>
-const floatCheck = document.getElementById('floatToggle')
-const slidersDiv = document.getElementById('sliders')
-const exportBox = document.getElementById('exportBox')
-const errorDiv = document.getElementById('error')
-let track = []
+        const floatCheck = document.getElementById('floatToggle')
+        const slidersDiv = document.getElementById('sliders')
+        const exportBox = document.getElementById('exportBox')
+        const errorDiv = document.getElementById('error')
+        let track = []
 
-const calSlider = () => {
-    let index = 0
-    const sl = slidersDiv.querySelectorAll('.slider')
-    sl.forEach(s => index += parseFloat(s.value))
-    sl.forEach(s => {
-        const parent = s.parentElement
-        if (parent.dataset.locked === "false") {
-            const newValue = (parseFloat(s.value) / index) * 100
-            s.value = newValue
-            s.nextElementSibling.textContent = `${newValue.toFixed(floatCheck.checked ? 2 : 0)}${floatCheck.checked ? '' : '%'}`
+        const calSlider = () => {
+            let index = 0
+            const sl = slidersDiv.querySelectorAll('.slider')
+            sl.forEach(s => index += parseFloat(s.value))
+            sl.forEach(s => {
+                const parent = s.parentElement
+                if (parent.dataset.locked === "false") {
+                    const newValue = (parseFloat(s.value) / index) * 100
+                    s.value = newValue
+                    s.nextElementSibling.textContent = `${newValue.toFixed(floatCheck.checked ? 2 : 0)}${floatCheck.checked ? '' : '%'}`
+                }
+            })
+
+            const total = Array.from(slidersDiv.querySelectorAll('.slider')).reduce((acc, slider) => acc + parseFloat(slider.value), 0)
+            if (Math.abs(total - 100) > 0.01) {
+                errorDiv.style.color = 'red'
+                errorDiv.textContent = 'The sum of all sliders must be 100!'
+                errorDiv.style.display = 'block'
+            } else {
+                errorDiv.style.color = 'green'
+                errorDiv.textContent = 'The sum of all sliders is now 100!'
+                errorDiv.style.display = 'block'
+            }
         }
-    })
 
-    const total = Array.from(slidersDiv.querySelectorAll('.slider')).reduce((acc, slider) => acc + parseFloat(slider.value), 0)
-    if (Math.abs(total - 100) > 0.01) {
-        errorDiv.style.color = 'red'
-        errorDiv.textContent = 'The sum of all sliders must be 100!'
-        errorDiv.style.display = 'block'
-    } else {
-        errorDiv.style.color = 'green'
-        errorDiv.textContent = 'The sum of all sliders is now 100!'
-        errorDiv.style.display = 'block'
-    }
-}
+        const update = (index) => {
+            if (track.includes(index)) track.splice(track.indexOf(index), 1)
+            track.unshift(index)
+            track = track.filter((v, i, a) => a.indexOf(v) === i).slice(0, 5)
+        }
 
-const update = (index) => {
-    if (track.includes(index)) track.splice(track.indexOf(index), 1)
-    track.unshift(index)
-    track = track.filter((v, i, a) => a.indexOf(v) === i).slice(0, 5)
-}
+        const exportBoxed = () => {
+            let code = "const sliders = {\n"
+            const sliders = slidersDiv.querySelectorAll('.slider-container')
+            sliders.forEach((container, index) => {
+                const name = container.querySelector('.slider-name').value || `slider${index + 1}`
+                const value = parseFloat(container.querySelector('.slider').value)
+                code += ` ${name}: ${value.toFixed(floatCheck.checked ? 2 : 0)}${index < sliders.length - 1 ? ',' : ''}\n`
+            })
+            code += '}'
+            exportBox.textContent = code
+            exportBox.style.display = 'block'
+        }
 
-const exportBoxed = () => {
-    let code = "const sliders = {\n"
-    const sliders = slidersDiv.querySelectorAll('.slider-container')
-    sliders.forEach((container, index) => {
-        const name = container.querySelector('.slider-name').value || `slider${index + 1}`
-        const value = parseFloat(container.querySelector('.slider').value)
-        code += ` ${name}: ${value.toFixed(floatCheck.checked ? 2 : 0)}${index < sliders.length - 1 ? ',' : ''}\n`
-    })
-    code += '}'
-    exportBox.textContent = code
-    exportBox.style.display = 'block'
-}
+        slidersDiv.addEventListener('input', (e) => {
+            if (e.target.classList.contains('slider')) {
+                const parent = e.target.parentElement
+                const index = Array.from(slidersDiv.children).indexOf(parent)
+                update(index)
+                calSlider()
+                exportBoxed()
+            }
+        })
 
-slidersDiv.addEventListener('input', (e) => {
-    if (e.target.classList.contains('slider')) {
-        const parent = e.target.parentElement
-        const index = Array.from(slidersDiv.children).indexOf(parent)
-        update(index)
-        calSlider()
-        exportBoxed()
-    }
-})
-
-document.getElementById('addSlider').addEventListener('click', () => {
-    const contain = document.createElement('div')
-    contain.classList.add('slider-container')
-    contain.dataset.locked = 'false'
-    contain.innerHTML = `
+        document.getElementById('addSlider').addEventListener('click', () => {
+            const contain = document.createElement('div')
+            contain.classList.add('slider-container')
+            contain.dataset.locked = 'false'
+            contain.innerHTML = `
         <input type="text" class="slider-name" placeholder="Slider Name">
         <input type="range" class="slider" min="0" max="100" value="50">
         <span class="slider-value">50</span> <!-- Added span to show value -->
         <label class="lock">🔓 Unlocked</label>
         <label class="delete">🗑️ Remove</label>
     `
-    slidersDiv.appendChild(contain)
+            slidersDiv.appendChild(contain)
 
-    if (slidersDiv.children.length > 1) {
-        const names = slidersDiv.querySelectorAll('.slider-name')
-        names.forEach(name => name.style.marginTop = '10px')
-    }
-})
+            if (slidersDiv.children.length > 1) {
+                const names = slidersDiv.querySelectorAll('.slider-name')
+                names.forEach(name => name.style.marginTop = '10px')
+            }
+        })
 
-slidersDiv.addEventListener('click', (e) => {
-    if (e.target.classList.contains('lock')) {
-        const parent = e.target.parentElement
-        const slider = parent.querySelector('.slider')
-        if (parent.dataset.locked === "true") {
-            parent.dataset.locked = "false"
-            slider.disabled = false
-            e.target.textContent = '🔓 Unlocked'
-        } else {
-            parent.dataset.locked = "true"
-            slider.disabled = true
-            e.target.textContent = '🔒 Locked'
-        }
-    } else if (e.target.classList.contains('delete')) e.target.parentElement.remove()
-})
+        slidersDiv.addEventListener('click', (e) => {
+            if (e.target.classList.contains('lock')) {
+                const parent = e.target.parentElement
+                const slider = parent.querySelector('.slider')
+                if (parent.dataset.locked === "true") {
+                    parent.dataset.locked = "false"
+                    slider.disabled = false
+                    e.target.textContent = '🔓 Unlocked'
+                } else {
+                    parent.dataset.locked = "true"
+                    slider.disabled = true
+                    e.target.textContent = '🔒 Locked'
+                }
+            } else if (e.target.classList.contains('delete')) e.target.parentElement.remove()
+        })
 
-slidersDiv.addEventListener('input', (e) => {
-    if (e.target.classList.contains('slider')) {
-        const value = parseFloat(e.target.value)
-        e.target.nextElementSibling.textContent = `${value.toFixed(floatCheck.checked ? 2 : 0)}${floatCheck.checked ? '' : '%'}`
-    }
-})
+        slidersDiv.addEventListener('input', (e) => {
+            if (e.target.classList.contains('slider')) {
+                const value = parseFloat(e.target.value)
+                e.target.nextElementSibling.textContent = `${value.toFixed(floatCheck.checked ? 2 : 0)}${floatCheck.checked ? '' : '%'}`
+            }
+        })
 
-floatCheck.addEventListener('change', () => {
-    calSlider()
-    exportBoxed()
-})
+        floatCheck.addEventListener('change', () => {
+            calSlider()
+            exportBoxed()
+        })
 
-exportBoxed()
+        exportBoxed()
 
     </script>
 </body>

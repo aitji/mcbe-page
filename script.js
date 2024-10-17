@@ -1,21 +1,7 @@
 /**
  * @author aitji
- * please don't stolen my work ok?
  */
 import { addon } from "./addondataa.js"
-
-// blur image onload
-const style = document.createElement('style')
-style.innerHTML = `
-  .blur {
-    filter: blur(10px)
-    transition: filter 0.3s ease
-  }
-  .blur.loaded {
-    filter: none
-  }
-`
-document.head.appendChild(style)
 
 document.addEventListener("DOMContentLoaded", function () {
     var stableFirstCheckbox = document.getElementById("stableFirstCheckbox")
@@ -51,7 +37,7 @@ function create(
     img.classList.add("addon-img", "blur")
     img.src = `../img/stock/${imgSRC}`
     img.alt = title + " Image"
-    img.addEventListener("load", () => img.classList.add("loaded")) // Remove blur when image is loaded
+    img.addEventListener("load", () => img.classList.add("loaded"))
     card.appendChild(img)
 
     var aTitle = document.createElement("h3")
@@ -102,22 +88,22 @@ function generate(stableFirst = false) {
 
     addons.forEach((addon, index) => {
         create(addon.title, addon.description, addon.imgSrc, addon.readId, addon.pageHref, addon.isStable)
-        setTimeout(() => {
-            var addonCards = document.querySelectorAll(".addon-card")
-            addonCards[index].style.opacity = "1"
-            addonCards[index].style.transform = "translateY(0)"
-        }, 100 * (index + 1))
+        // setTimeout(() => {
+        //     var addonCards = document.querySelectorAll(".addon-card")
+        //     addonCards[index].style.opacity = "1"
+        //     addonCards[index].style.transform = "translateY(0)"
+        // }, 100 * (index + 1))
     })
+    const style = document.createElement('style')
+    style.innerHTML = `.blur {filter: blur(8px);transition: filter 2s ease;} .blur.loaded {filter: none;}`
+    document.head.appendChild(style)
 }
 
 generate(false)
 
-/**
- * sorry for block this drag content
- * */
 if (window.location.hostname !== '127.0.0.1') {
     document.body.classList.add('no-select')
-    setTimeout(() => { document.querySelectorAll('img').forEach(img => { img.draggable = false }) }, 300)
+    setTimeout(() => document.querySelectorAll('img').forEach(img => img.draggable = false), 300)
     window.addEventListener('contextmenu', ev => ev.preventDefault())
-    document.addEventListener('dragstart', event => { if (event.target.tagName.toLowerCase() === 'a') event.preventDefault() })
+    document.addEventListener('dragstart', event => event.target.tagName.toLowerCase() === 'a' && event.preventDefault())
 }

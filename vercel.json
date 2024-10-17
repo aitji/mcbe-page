@@ -4,6 +4,11 @@
             "handle": "filesystem"
         },
         {
+            "src": "/new",
+            "status": 302,
+            "headers": {"Location": "/index.html"}
+        },
+        {
             "src": "/(.*)",
             "status": 404,
             "dest": "/error.html"
