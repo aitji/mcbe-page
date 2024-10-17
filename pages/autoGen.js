@@ -29,45 +29,46 @@ function gen(title, description, get) {
     const container = document.querySelector(".container")
     const stableTag = get.isStable ? "@stable" : "@beta"
     const stableMsg = get.isStable
-        ? "แอดออนตัวนี้เป็นแอดแอน @stable ฉนั้นไม่ต้องโหลดซ้ำหลังอัพเดท!"
-        : "⚠️ แอดออนตัวนี้เป็นแอดออน beta หลังตัวเกมอัพเดท อาจต้องมาทำการอัพเดทแอดออนอีกครั้ง!"
-    const betaApiMsg = get.isStable ? "" : "และเปิด beta api เพื่อให้แอดออนทำงาน"
-    const longDes = get.longDes || "(BETA: ในอนาคตจะมาเพิ่ม description เพิ่มเติมให้แต่ละแอดออนนะ แต่ยังก่อนน)"
+        ? "this addon was written in @stable no need to re-download after minecraft updates"
+        : `<i class="fa-solid fa-triangle-exclamation"></i> this addon was written in @beta after minecraft big update you may have to re-download this addon!`
+    const betaApiMsg = get.isStable ? "" : "and enabled beta api in experimental features tabs"
+    const longDes = get.longDes || "(BETA: in near features each addon will have their own description, but at this moment no)"
     const findAddon = find_me.reduce((acc, finder) => get.readId.toLowerCase().includes(finder.url.toLowerCase()) ? finder.link.replace("_ver_", lastest_ver) : acc, '')
     const url = `../unlock#${get.readId}`
     const git = findAddon.replace('/raw/', '/tree/').replace('Download.mcpack', 'Addon')
 
     container.innerHTML = `
-    <div class="header">
-        <div class="addon-grid">
-            <div class="addon-card">
-                <div class="banner"><img class="addon-img" src="../img/stock/${get.imgSrc}" alt="${get.title} Image"></div>
-                <h3 style="font-size: 20px;">${get.title}</h3>
-                <p style="font-size: 18px;">${get.description}</p>
-                <a href="..">« ย้อนกลับไปหน้าแรก</a>
-                <span class="${get.isStable ? 'addon-stable-tag' : 'addon-beta-tag'}">${stableTag}</span>
+    <section class="addon-grid container mt-5">
+        <div class="hero-banner row justify-content-center">
+            <div class="col-md-8 text-center">
+                <img class="addon-img img-fluid rounded shadow" src="../img/stock/${get.imgSrc}" alt="${get.title} Image">
             </div>
         </div>
-    </div>
-    <div class="addon-details">
-        <br><hr>
-        <h2>${title}</h2>
+    </section>
+    
+    <div class="addon-details container mt-4">
+        <h2 class="text-primary">${title}| <span class="tag ${get.isStable ? 'badge bg-success' : 'badge bg-warning'}">${stableTag}</span></h2>
         <p>${longDes || description}</p>
-        <p>${stableMsg}</p>
-        <p>แอดออนเวอชั่น: <a>${lastest_ver}</a></p>
+        <p class="text-info">${stableMsg}</p>
+        <p>Addon Version: <strong>${lastest_ver}</strong></p>
         <br>
-        <h2>วิธีการติดตั้ง:</h2>
-        <ul class="list">
-            <li>กดข้อความ ${get.readId} ${lastest_ver}.mcpack ด้านล่าง</li>
-            <li>หลังจากนั้น ให้กดเปิด Download.mcpack</li>
-            <li>เมื่อสร้างโลกให้ใส่แอดออน${betaApiMsg}</li>
+        <h2 class="text-secondary">Installation:</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Click on <strong>${get.readId} ${lastest_ver}.mcpack</strong> below</li>
+            <li class="list-group-item">Then open <strong>Download.mcpack</strong></li>
+            <li class="list-group-item">After creating a world, install addon ${betaApiMsg}</li>
         </ul>
         <br>
-        <h2>ดาวน์โหลด:</h2>
-        <ul class="list">
-            <li><a href="${url}" style="font-weight: bold;">${get.readId} | ${lastest_ver}.mcpack</a></li>
-            <li><a href="${git}" style="font-weight: bold;">ดูโค๊ดต้นฉบับ</a></li>
+        <h2 class="text-secondary">Download:</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="${url}" class="btn btn-primary fw-bold"><i class="fa-solid fa-file-arrow-down"></i> ${get.readId} | ${lastest_ver}.mcpack</a>
+            </li>
+            <li class="list-group-item">
+                <a href="${git}" class="btn btn-secondary fw-bold"><i class="fa-brands fa-github"></i> GitHub Code</a>
+            </li>
         </ul>
-        <hr><br>
-    </div>`
+    </div>
+    <span><br></span>`;
+
 }

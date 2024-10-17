@@ -2,198 +2,199 @@ export const lastest_ver = "1.21.30"
 
 export const addon = [
     {
-        title: "TPA (ขอเทเลพอร์ต)",
-        description: "เพิ่มระบบขอการเทเลพอร์ต โดยใช้เข็มทิศในการเปิดเมนู",
+        title: "TPA (Teleportation Asking)",
+        description: "Use Compass to ask for teleportation.",
         imgSrc: 'tpa.png',
         readId: "tpa",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Level (ระบบเลเวล)",
-        description: "เพิ่ม  Structure 'xp' เพื่อโหลดคอมมานเลเวล",
+        title: "Level (Level System)",
+        description: "Add 'xp' structure for basic level system commands.",
         imgSrc: 'level.jpg',
         readId: "level",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Roblox Chat! (แชทแบบ Roblox)",
-        description: "แอดออนนี้จะเพิ่มแชทบนป้ายชื่อของผู้เล่นโดยแอดมินจะมีสิทธิ์ตั้งค่าได้!",
+        title: "Roblox Chat! (Roblox Chat Style)",
+        description: "Adds chat on player name tags, customizable by admin.",
         imgSrc: 'rbchat.jpg',
         readId: "rbchat",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "Wanted! (ล่าค่าหัว)",
-        description: "แอดออนนี้เป็นระบบล่าค่าหัวพื้นฐานผู้ดูแลมีสิทธิ์ตั้งค่าแอดออนได้",
+        title: "Wanted! (Bounty Hunting)",
+        description: "Basic bounty hunting system customizable by admin.",
         imgSrc: 'wanted.jpg',
         readId: "wanted",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Ban/Unban! (การ แบนและปลดแบน)",
-        description: "แอดออนนี้เป็นแอดออนที่เพิ่มสิทธิ์ให้ผู้ดูแลเซิร์ฟวเอร์แบนหรือปลดแบนผู้เล่นในเซิร์ฟเวอร์",
+        title: "Ban/Unban! (Ban and Unban)",
+        description: "Gives admin the ability to ban or unban players.",
         imgSrc: 'ban.jpg',
         readId: "ban",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "VoteKick (โหวตเตะผู้เล่น)",
-        description: "แอดออนนี้เพิ่มความมีส่วนร่วมให้กับผู้เล่นในเซิร์ฟเวอร์ของคุณ ทำให้พวกเขาสามารถโหวตคนนิสัยแย่ ๆ ในเซิร์ฟเวอร์ออกไปได้!",
+        title: "VoteKick (Vote to Kick Players)",
+        description: "Allows players to vote to kick troublesome users.",
         imgSrc: 'voteKick.jpg',
         readId: "voteKick",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "UnBreak (ระบบกันพัง)",
-        description: "แอดออนนี้เราแค่เห็นว่ามันเท่ดีเลยทำมาแจกเป็นระบบกันทุบบล็อก/วางบล็อก (โหมดผจญภัยดีกว่า)",
+        title: "UnBreak (Unbreakable Block System)",
+        description: "Prevents block breaking/placing (best in MiniGames Server).",
         imgSrc: 'unbreak.jpg',
         readId: "unbreak",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "All Chat (รวมระบบแชท)",
-        description: "แอดออนนี้เป็นแอดออนที่ผมรวบรวมระบบแชทที่เคยแจกก่อนหน้าเป็นอันเดียวแล้วมาแจกใหม่!",
+        title: "All Chat (All-in-One Chat Add-On)",
+        description: "Combines(RoomChat & NearChat & AntiSpam) previous chat systems into one.",
         imgSrc: 'allchat.jpg',
         readId: "allchat",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "Dash (พุ่งหลาว)",
-        description: "แอดออนนี้เพิ่มแท็ก Dash เพื่อนำไปใช้ควบคู่กับคอมมานบล็อกต่าง ๆ",
+        title: "Dash (Dasher)",
+        description: "Adds Dash tag for use with command blocks.",
         imgSrc: 'dash.jpg',
         readId: "dash",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Moon Action (ตรวจสอบการ..)",
-        description: "เจ้าตัวนี้จะช่วยเพิ่ม tag/score ให้กับคนที่ทำอะไรบางอย่างเช่น ย่อ กระโดด วิ่ง",
+        title: "Moon Action (Activity Detector)",
+        description: "Adds tags/score for player actions like crouching and jumping.",
         imgSrc: 'moonaction.jpg',
         readId: "moonaction",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Health NameTag (แสดงเลือด mob)",
-        description: "แอดออนนี้จะเปลีย่นชื่อ mob ในเซิร์ฟเวอร์ให้แสดงเลือด รองรับป้ายชื่อด้วยแหละ!",
+        title: "Health NameTag (Mob Health Displaying)",
+        description: "Shows health on mob name tags excluding players.",
         imgSrc: 'healthametag.jpg',
         readId: "healthametag",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "RoomChat (ห้องแชท)",
-        description: "ระบบห้องแชทสำหรับเซิร์ฟเวอร์มินิเกมและอื่น ๆ ระบบนี้จะช่วยได้อย่างมาก",
+        title: "RoomChat (Chat Room)",
+        description: "Chat room system for mini-game servers.",
         imgSrc: 'roomchat.jpg',
         readId: "roomchat",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "NearChat (แชทใกล้เคียง)",
-        description: "แอดออนนี้เปิดโอกาสให้ผู้เล่นสามารถแชทกับผู้คนบริเวณรอบ ๆ ตัวได้ ตามที่แอดมินเซิร์ฟเวอร์กำหนดไว้",
+        title: "NearChat (Chat Proximity)",
+        description: "Allow players to chat with nearby players.",
         imgSrc: 'nearchat.jpg',
         readId: "nearchat",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "ChatRank (แชทแรงค์)",
-        description: "แอดออนนี้จะทำให้ชื่อของผู้เล่นระหว่างแชทมีแรงค์ขึ้นต้น!",
+        title: "ChatRank (Rank Chat)",
+        description: "Shows rank in player chat names.",
         imgSrc: 'chatrank.jpg',
         readId: "chatrank",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "PoliceCaughtThief (ตำรวจจับโจร)",
-        description: "แอดออนนี้เพิ่มระบบตำรวจจับโจรแบบง่าย ๆ แต่มีการตั้งค่าที่เยอะมาก!",
+        title: "PoliceCaughtThief (Police vs. Thief)",
+        description: "Simple police caught thief system with extensive settings.",
         imgSrc: 'policecaughtthief.jpg',
         readId: "policecaughtthief",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "AFK (อยู่หน้าจอหรือไม่)",
-        description: "เพิ่ม structure สำหรับตรวจคนที่ afk ในเซิร์ฟเวอร์",
+        title: "AFK (Away from Keyboard Detector)",
+        description: "Structure to detect AFK players.",
         imgSrc: 'afk.jpg',
         readId: "afk",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Real Time (เวลาจริง)",
-        description: "เพิ่ม scoreboard สำหรับดูเวลาในโลกจริง",
+        title: "Real Time (UTC+7)",
+        description: "Adds scoreboard for real-world time.",
         imgSrc: 'realtime.jpg',
         readId: "realtime",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Anti Spam (ป้องกันสแปม)",
-        description: "ป้องกันไม่ให้คนฟรัดข้อความในเซิร์ฟเวอร์ (แอดมินต้องค่าข้อความและเวลาได้)",
+        title: "Anti Spam (Chat Protection)",
+        description: "Prevents spamming in chat, configurable by admin.",
         imgSrc: 'antispam.jpg',
         readId: "antispam",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "Leader Board (กระดานผู้นำ)",
-        description: "กระดานผู้นำตั้งค่าได้สำหรับแอดมิน~",
+        title: "Leader Board (Leader Board)",
+        description: "Leader board can only be changed by admin.",
         imgSrc: 'leaderboard.jpg',
         readId: "leaderboard",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "Transfer Money (ระบบโอนเงิน)",
-        description: "แอดออนโอนเงินให้ผู้เล่นอื่น ๆ ในเซิร์ฟเวอร์",
+        title: "Transfer Money (Money Transfer System)",
+        description: "Transfer money to other players in the server.",
         imgSrc: 'transfermoney.jpg',
         readId: "transfermoney",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "InvSee (ส่องช่องเก็บของ)",
-        description: "ส่องช่องเก็บของผู้เล่นในเซิร์ฟเวอร์ (แอดมินเท่านั้น)",
+        title: "InvSee (Inventory Viewer)",
+        description: "Allows admin to see player's inventory.",
         imgSrc: 'invsee.jpg',
         readId: "invsee",
         pageHref: "#",
         isStable: false
     },
     {
-        title: "TeleportCompass (เข็มทิศวาร์ปหนี)",
-        description: "แอดออนนี้จะทำให้เข็มทิศวาร์ปไปหาผู้เล่นในเซิร์ฟเวอร์ของคุณได้",
+        title: "TeleportCompass (Compass Teleport)",
+        description: "Use compass to teleport to players in the server.",
         imgSrc: 'teleportcompass.jpg',
         readId: "teleportcompass",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "ColorName (เปลี่ยนสีชื่อ)",
-        description: "เปลี่ยนชื่อป้ายชื่อให้กับผู้เล่นในเซิร์ฟเวอร์",
+        title: "ColorName (Name Color Changer)",
+        description: "Change player name colors in the server.",
         imgSrc: 'nametag.jpg',
         readId: "nametag",
         pageHref: "#",
         isStable: true
     },
     {
-        title: "ServerUI (เมนูผู้เล่น)",
-        description: "เพิ่มให้นาฬิกามีเมนูเปลี่ยนภาษาได้ด้วยนะ",
+        title: "ServerUI (Player Menu)",
+        description: "Adds clock menu essentials for server",
         imgSrc: 'serverui.jpg',
         readId: "serverui",
         pageHref: "#",
         isStable: true
     }
 ]
+
 
 export const find_me = [
     // http://127.0.0.1:5500/download/?lastest=antispam
