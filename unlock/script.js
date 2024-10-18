@@ -7,7 +7,7 @@ if (!get) {
 }
 
 window.onload = function () {
-    document.getElementById('dynamic_text').innerHTML = `เพื่อปลดล็อกแอดออน <a>${get.title} </a> กดติดตามเราหน่อยน้า~!`
+    document.getElementById('dynamic_text').innerHTML = `To unlock <a>${get.title} </a> add-on, follow me in youtube~!`
     checkSub()
 }
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const dynamic_banner = document.getElementById('dynamic_banner')
     dynamic_banner.src = banner
     dynamic_banner.classList.add('rounded', 'shadow')
-    dynamic_banner.innerHTML = `เพื่อปลดล็อกแอดออน <a>${get.title} </a> กดติดตามเราหน่อยน้า~!`
+    dynamic_banner.innerHTML = `To unlock <a>${get.title} </a> add-on, follow me in youtube~!`
 })
 
 function checkSub() {
@@ -24,17 +24,17 @@ function checkSub() {
     if (document.cookie.includes("subscribed=true")) {
         simulateLoading(1)
 
-        document.getElementById('dynamic_text').innerHTML = `คุณสามารถโหลดแอดออน <a>${get.title}</a> ได้เลย~!`
+        document.getElementById('dynamic_text').innerHTML = `You can download <a>${get.title}</a> add-on now~!`
 
         buttonContainer.innerHTML = `
             <div class="me-2" style="margin-top: 9px;">
                 <a href="../" class="btn btn-outline-secondary btn-lg">
-                    <i class="fas fa-arrow-left"></i> ย้อนกลับ
+                    <i class="fas fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div>
                 <button id='subed' class="btn btn-success btn-lg">
-                    <i class="fa-solid fa-download"></i> ดาวน์โหลด!
+                    <i class="fa-solid fa-download"></i> Download!
                 </button>
             </div>
         `
@@ -50,14 +50,7 @@ document.getElementById("subscribeBtn").addEventListener("click", function () {
         simulateLoading()
         document.cookie = "subscribed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"
         window.location.href = 'https://www.youtube.com/@aitji.?sub_confirmation=1'
-
-        setTimeout(function () {
-            if (!document.cookie.includes("subscribed=true")) {
-                document.cookie = "subscribed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"
-            }
-            showModal()
-            checkSub()
-        }, 3000)
+        checkSub()
     }
 })
 
@@ -70,30 +63,6 @@ function simulateLoading(de = 95) {
         if (width >= 100) clearInterval(interval)
         loadingBar.style.width = width + "%"
     }, 10)
-}
-
-function showModal() {
-    $('body').append(`
-        <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="subModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="subModalLabel">กดติดตามแล้ว!</h4>
-              </div>
-              <div class="modal-body">
-                คุณกดติดตามเรียบร้อยแล้ว! ขอบคุณมาก ตอนนี้โหลดแอดออนได้เลย!
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">เยี่ยมเลย!</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    `)
-    $('#subModal').modal('show')
 }
 
 function redirectToAddon() {

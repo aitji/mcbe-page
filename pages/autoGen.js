@@ -48,27 +48,31 @@ function gen(title, description, get) {
     
     <div class="addon-details container mt-4">
         <h2 class="text-primary">${title}| <span class="tag ${get.isStable ? 'badge bg-success' : 'badge bg-warning'}">${stableTag}</span></h2>
-        <p>${longDes || description}</p>
-        <p class="text-info">${stableMsg}</p>
-        <p>Addon Version: <strong>${lastest_ver}</strong></p>
+        <a>Addon Version: <strong>${lastest_ver}</strong></a>
+        <p>${longDes || description}<br><a class="text-warning">${stableMsg}<br></a></p>
+        
         <br>
         <h2 class="text-secondary">Installation:</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Click on <strong>${get.readId} ${lastest_ver}.mcpack</strong> below</li>
-            <li class="list-group-item">Then open <strong>Download.mcpack</strong></li>
-            <li class="list-group-item">After creating a world, install addon ${betaApiMsg}</li>
+            <li class="list-group-item">1. Click on <strong>${get.readId}-addon-${lastest_ver}.mcpack</strong> below</li>
+            <li class="list-group-item">2. You will be redirected to <strong>unlock/#${get.readId}</strong></li>
+            <li class="list-group-item">3. To unlock my addon, you need to <strong>Follow Me</strong> on YouTube!</li>
+            <li class="list-group-item">4. Click on <strong>"<i class="fas fa-plus"></i> Follow</strong>"</li>
+            <li class="list-group-item">5. After following me on YouTube, you will unlock the addon!</li>
+            <li class="list-group-item">6. Then press <strong><i class="fa-solid fa-download"></i> Download!</strong> You will receive the addon as <strong>Download.mcpack</strong></li>
+            <li class="list-group-item">7. Now open <strong>Download.mcpack</strong> in Minecraft Bedrock Edition</li>
+            <li class="list-group-item">8. After creating a world, install the addon ${betaApiMsg}</li>
         </ul>
         <br>
         <h2 class="text-secondary">Download:</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <a href="${url}" class="btn btn-primary fw-bold"><i class="fa-solid fa-file-arrow-down"></i> ${get.readId} | ${lastest_ver}.mcpack</a>
+                <a href="${url}" class="btn-primary fw-bold"><i class="fa-solid fa-file-arrow-down"></i> ${get.readId}-addon-${lastest_ver}.mcpack</a>
             </li>
             <li class="list-group-item">
-                <a href="${git}" class="btn btn-secondary fw-bold"><i class="fa-brands fa-github"></i> GitHub Code</a>
+                <a href="${git}" class="btn-secondary fw-bold"><i class="fa-brands fa-github"></i> GitHub Code</a>
             </li>
         </ul>
     </div>
-    <span><br></span>`;
-
+    <span><br></span>`
 }

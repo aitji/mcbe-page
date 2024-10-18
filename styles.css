@@ -115,6 +115,10 @@ body {
     color: var(--red-hover);
 }
 
+footer {
+    background-color: var(--bg-color);
+}
+
 .addon-card {
     margin: 15px;
     background: var(--card-bg);
