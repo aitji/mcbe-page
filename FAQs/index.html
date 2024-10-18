@@ -63,9 +63,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../"><i class="fa-solid fa-house-chimney"></i>
+                            Home</a></li>
                     <li class="nav-item"><a class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://dsc.gg/aitji"><i class="fab fa-discord"></i> Discord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://dsc.gg/aitji"><i class="fab fa-discord"></i>
+                            Discord</a></li>
                 </ul>
             </div>
         </div>
@@ -78,16 +80,50 @@
             <p>Hey There! I'm <a><i class="fa-solid fa-at"></i>aitji</a></p>
             <p>Welcome to my addon hub, where you can download all my cool addons for free!<br>Check out my latest
                 creations and stay updated!</p>
-            <a href="#addons" class="btn btn-outline-primary scroll-btn red-primary">
-                <i class="fa-solid fa-arrow-down"></i>
-                Explore Addons
-                <i class="fa-solid fa-arrow-down"></i>
-            </a>
         </div>
     </header>
 
-    <!-- FAQs: javascript loader -->
-    <div id="faqs"></div>
+    <!-- des -->
+    <section class="faqs py-5">
+        <div class="container">
+            <div class="text-center text-mobile-left">
+                <h2 class="mb-4 strong"><i class="fa-solid fa-at"></i>FAQs <i class="fa-solid fa-question"></i></h2>
+                <p class="lead">Welcome to the FAQs page!<br>
+                    Here, I will collect all of your questions for easy access. If you have any questions that are not
+                    answered here, feel free to reach out! on our <a href="https://dsc.gg/aitji" class="strong"><i
+                            class="fab fa-discord"></i> Discord</a>, btw. Here you are all FAQs I'm collected (<span
+                        id="FAQs-counter">0</span> FAQs)
+                </p>
+                <!-- FAQs: javascript loader -->
+                <section class="search-filter container mt-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="addonSearchBar"
+                                placeholder="Search for an FAQs...">
+                        </div>
+                        <p class="addon-description text-muted text-cc left" id="search-tell" style="margin-top: 10px;">
+                        </p>
+                    </div>
+                </section>
+                <div id="faqs" style="margin-top: -40px;"></div>
+                <div class="text-center" style="margin-top: -30px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fas fa-ghost fa-3x"></i>
+                    <span style="font-size: 1.2rem; white-space: normal; word-wrap: break-word; text-align: center; margin-top: 10px;">
+                        Oops! Looks like this is the end of the road for FAQs!<br class="mobile-hidden">
+                        If your questions still stand, reach me out on my
+                        <a href='https://dsc.gg/aitji' class="strong">
+                            <i class='fab fa-discord'></i> Discord
+                        </a> Server or leave a comment on
+                        <a href='https://youtube.com/@aitji' class="strong">
+                            <i class='fab fa-youtube'></i> YouTube
+                        </a>.
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="text-black text-center py-3 mt-5">
