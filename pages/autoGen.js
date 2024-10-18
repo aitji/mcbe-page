@@ -159,7 +159,7 @@ function gen(title, description, get) {
         <h2 class="text-secondary">Installation:</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">1. Click on <strong>${get.readId}-addon-${lastest_ver}.mcpack</strong> below</li>
-            <li class="list-group-item">2. You will be redirected to <strong>unlock/#${get.readId}</strong></li>
+            <li class="list-group-item">2. You will be redirected to <strong>unlock#${get.readId}</strong></li>
             <li class="list-group-item">3. To unlock my addon, you need to <strong>Follow Me</strong> on YouTube!</li>
             <li class="list-group-item">4. Click on <strong>"<i class="fas fa-plus"></i> Follow</strong>"</li>
             <li class="list-group-item">5. After following me on YouTube, you will unlock the addon!</li>
