@@ -195,6 +195,7 @@ footer {
     background-position: center center;
     color: #fff;
     padding: 100px 0;
+    box-shadow: 0 5px 8px #130b083e;
 }
 
 .addon-grid {
