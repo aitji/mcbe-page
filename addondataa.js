@@ -319,16 +319,16 @@ export const addon = [
         pageHref: "#",
         isStable: false,
         longDes: `
-### Key Features
+## Key Features
 - **Configurable Chat Range**: Players can communicate with others within a specified distance, enhancing immersion and realism in the game.
 - **Admin Controls**: Admins have special privileges to see all messages, regardless of distance, and can send messages to all players. This ensures that important announcements are not missed.
 - **Customizable Settings**: Admins can easily adjust chat parameters, such as message visibility and chat range, through an intuitive user interface.
 - **Feedback Mechanism**: Players receive notifications when their messages can't reach others due to distance, maintaining awareness of their communication limits.
 
-### User Experience
+## User Experience
 Players will enjoy a more dynamic chat experience, where communication feels more organic and location-based. Admins can efficiently manage the chat environment, ensuring that all players have a clear line of communication while keeping important messages visible to all.
 
-### Conclusion
+## Conclusion
 The Distance Chat System addon significantly enhances the multiplayer experience in Minecraft. By allowing for customizable chat settings and providing admins with powerful control features, it fosters better communication among players, making the game more interactive and engaging. This addon is perfect for server owners looking to create a more connected community!`
     },
     {
@@ -339,16 +339,16 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         pageHref: "#",
         isStable: false,
         longDes: `
-        ### Features
+        ## Features
         - **Customizable Chat Prefixes**: Server admins can set a specific prefix for ranks (e.g., "rank:") that will appear in chat messages, allowing for easy identification of players' ranks.
         - **Default Rank Setting**: If a player does not have a specific rank tag, a default title (like "Player") will be displayed, ensuring that every player has a visible identifier.
         - **Intuitive Admin Controls**: Admins can adjust the chat prefix and default rank through a user-friendly GUI by using a compass item, making it simple to update settings without manual command input.
         - **Error Handling**: The addon includes error messages to assist admins if something goes wrong when trying to access settings.
 
-        ### User Experience
+        ## User Experience
         Players will experience a more organized chat environment, where rank prefixes help them identify other players' roles at a glance. The default rank ensures inclusivity, making every player feel acknowledged. Admins will appreciate the straightforward settings interface that allows for quick adjustments.
 
-        ### Conclusion
+        ## Conclusion
         The Rank Chat System addon enhances communication in Minecraft servers by introducing rank visibility in chat. By allowing customizable prefixes and default settings, it fosters a sense of community and hierarchy among players. This addon is perfect for server owners looking to enrich the player experience while providing admins with easy management tools.`
     },
     {
@@ -361,7 +361,7 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         longDes: `
         The **Boss Settings Addon** enhances gameplay in Minecraft by allowing server administrators to manage the behavior and characteristics of players designated as "Officers" and "Bandits." This addon provides a user-friendly interface through a compass item, enabling quick adjustments without needing to access complex command lines.
 
-        ### Features:
+        ## Features:
         - **Admin Access**: Only players with the 'Admin' tag can access the settings, ensuring that control remains in trusted hands.
         - **Selection Menu**: A sleek UI that allows admins to choose between managing "Officers," "Bandits," "Server settings," or resetting all configurations.
         - **Officer Settings**: Set custom tags and items for officers, tailoring their in-game identity and functionality to fit the server's theme.
@@ -369,10 +369,10 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         - **Server Management**: Adjust server-wide settings such as jail coordinates and money object types, allowing for greater control over the game environment.
         - **Reset Functionality**: Quickly reset all configurations to default values, ensuring flexibility in managing server settings.
 
-        ### User Experience:
+        ## User Experience:
         Players can enjoy a streamlined process for modifying critical game settings, enhancing engagement and immersion. The intuitive UI makes it easy for admins to make changes on the fly, keeping gameplay fresh and exciting. By managing roles effectively, admins can create unique dynamics within their server, making for a more enjoyable experience for all players.
 
-        ### Conclusion:
+        ## Conclusion:
         The **Boss Settings Addon** is an essential tool for Minecraft server administrators seeking to enrich their gameplay experience. With its straightforward interface and powerful features, it allows for effective management of player roles and server settings, fostering an engaging and dynamic game environment. Whether you're running a role-playing server or just want to add some flair to your Minecraft world, this addon is a must-have!`
     },
     {
@@ -382,7 +382,19 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "afk",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **AFK Detector** addon is a simple yet effective tool for Minecraft server owners to monitor player activity. Designed for ease of configuration, this addon allows map owners to set up AFK detection through straightforward commands, ensuring a smoother gaming experience without unnecessary complications.
+
+        ## Features:
+        - **Command-Based Detection**: No complex UI required! The AFK Detector operates entirely through commands, making it lightweight and easy to implement.
+        - **Customizable AFK Settings**: Server owners can easily configure detection settings directly within the command, allowing for flexibility in defining AFK behavior based on server needs.
+        - **Efficient Monitoring**: The addon continually checks player activity, allowing admins to identify AFK players and take necessary actions (like notifications or automatic kick).
+        - **Minimal Setup Required**: Quick and easy installation with just a few commands, enabling map owners to get started without extensive technical knowledge.
+            
+        ## User Experience:
+        The **AFK Detector** provides a hassle-free experience for server administrators. By eliminating the need for a graphical interface, it allows for rapid configuration changes via command lines. This simplicity ensures that map owners can focus on creating and enjoying their game without the burden of managing complex systems.
+        ## Conclusion:
+        The **AFK Detector** is an invaluable tool for any Minecraft server owner looking to maintain an active and engaging environment. With its command-based functionality and straightforward configuration options, it simplifies the AFK monitoring process, allowing for a more enjoyable gameplay experience. Perfect for both casual and serious servers, this addon is a great addition to any Minecraft world!`
     },
     {
         title: "Real Time (UTC+7)",
@@ -391,7 +403,21 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "realtime",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        ## Features:
+
+        - **Dynamic Time Settings**: Players can choose between using the Buddhist calendar (BE) or the Gregorian calendar (CE) for in-game time, adding a cultural touch to gameplay.
+        - **GMT Customization**: Users can set their desired GMT offset, enabling them to align in-game time with their real-world time, enhancing the overall experience for players in different time zones.
+        - **User-Friendly Modal Interface**: The addon features a modal form that is easy to navigate, allowing players to set their preferences quickly and intuitively without complicated commands.
+        - **Automatic Time Update** :The addon continually updates in-game time based on the configured GMT, ensuring that players have a real-time experience that reflects their local time accurately.
+        - **Error Handling**: The code includes error handling for fetching GMT settings, ensuring smooth operation even if there are issues during execution.
+
+        ## User Experience:
+        The **Real Time Settings** addon creates a user-friendly experience for players, particularly those with administrative roles. The modal form makes it easy to select time preferences, and the instant feedback provided through chat messages enhances communication. Players can quickly adjust their settings without diving deep into commands, making the process seamless and enjoyable.
+
+        ## Conclusion:
+        The **Real Time Settings** addon is an excellent addition for Minecraft servers aiming to offer players a more personalized and immersive experience. By allowing users to configure their time settings easily and providing real-time updates, this addon enhances gameplay and cultural relevance. Whether for casual or serious gaming sessions, this addon will surely be appreciated by players and admins alike!`
+
     },
     {
         title: "Anti Spam (Chat Protection)",
@@ -400,7 +426,22 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "antispam",
         pageHref: "#",
         isStable: false,
-        
+        longDes: `
+        The **Server Anti Spam** addon is designed to help Minecraft server administrators manage chat behavior by implementing a customizable delay on player messages. This addon allows for a flexible configuration of message rates and automated warnings, ensuring a smoother chat experience for all players.
+
+        ## Features:
+        - **Chat Delay Settings**: Server admins can set a customizable delay (in seconds) between player messages, preventing spam and promoting a more engaging chat environment.
+        - **Custom Warning Messages**: Admins can configure a warning message that players receive when they attempt to spam the chat, making it clear that they need to slow down.
+        - **Intuitive Modal Form**: The addon uses a modal interface for settings adjustment, providing a user-friendly way for admins to set chat limits and warning messages without needing complex commands.
+        - **Dynamic Message Monitoring**: The addon continuously checks and enforces message delays for each player, ensuring that no one can spam regardless of their status in the game.
+        - **Error Handling**: Built-in error handling prevents crashes and allows the addon to continue functioning smoothly even if specific player settings are not found.
+
+        ## User Experience:
+        The **Server Anti Spam** addon offers a streamlined experience for server admins and players alike. The modal form makes it easy for admins to set chat parameters quickly. Players are kept informed through warning messages, making it clear when they need to adjust their chatting behavior. This proactive approach helps maintain a positive environment and encourages respectful communication.
+
+        ## Conclusion:
+        The **Server Anti Spam** addon is an essential tool for any Minecraft server seeking to maintain a friendly and engaging chat atmosphere. By providing adjustable settings for message frequency and customizable warnings, this addon effectively mitigates spam while fostering a more enjoyable gameplay experience. With its user-friendly interface and robust functionality, server administrators can easily implement and manage chat rules, ensuring a respectful community for all players!
+        `
     },
     {
         title: "Leader Board (Leader Board)",
@@ -409,7 +450,21 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "leaderboard",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **Leaderboard Addon** enhances the Minecraft experience by introducing a customizable leaderboard system that allows players to view rankings based on specific criteria like scoreboards.
+
+        ## Features:
+        - **Customizable Leaderboards**: Server administrators can set up leaderboards based on various scoreboard objectives (e.g., money, points), allowing for flexibility in what players can compete for.
+        - **Dynamic User Interface**: The addon utilizes a user-friendly interface with action forms, allowing players to easily view their rankings and those of others.
+        - **Admin Controls**: Admins have the ability to edit leaderboard settings, including the objective displayed, the title, and the maximum number of players shown.
+        - **Interactive Elements**: Players can use a compass item to access their leaderboard, making it easy to check their stats while playing.
+        - **Real-time Updates**: The leaderboard updates dynamically, ensuring players always see the most current rankings based on their in-game performance.
+
+        ## User Experience:
+        Players will find this addon engaging as it fosters competition and interaction among them. The ability to check their rankings and see how they stack up against others adds a layer of excitement to the gameplay. Admins will appreciate the ease of configuration, allowing them to tailor the leaderboard to fit their server's theme or objectives without extensive technical knowledge.
+
+        ## Conclusion:
+        The **Leaderboard Addon** is an excellent addition for Minecraft servers aiming to enhance player engagement through competition. Its customizable features and user-friendly interface make it accessible to both players and administrators. By integrating this addon, servers can create a lively, competitive atmosphere that encourages players to strive for higher ranks and fosters a sense of community.`
     },
     {
         title: "Transfer Money (Money Transfer System)",
@@ -418,7 +473,22 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "transfermoney",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **Money Transfer Addon** allows players to send virtual currency to each other in Minecraft, enhancing the social interaction and economy within the game.
+
+        ## Features:
+
+        - **Item Activation**: Players can initiate money transfers using a specific item (a clock in this case), making it intuitive to use.
+        - **Player Selection GUI**: The addon presents a visually appealing interface that lets players select whom they want to send money to, along with displaying their current balance.
+        - **Input Validation**: The addon includes robust checks to ensure the transfer amount is valid, including limits on how much money can be sent based on the sender's balance.
+        - **Transfer Confirmation**: Before completing a transfer, players are prompted to enter the amount and an optional message, enhancing the transaction experience.
+        - **Sound Feedback**: Sound effects are included to provide auditory feedback for actions like successful transfers and errors, adding to the immersive experience.
+
+        ## User Experience:
+        Players will find this addon enjoyable as it fosters a sense of community and interaction. The ability to send money to friends can enhance cooperation and relationships within the game. The intuitive interface and clear prompts make the process straightforward, ensuring that even new players can navigate it with ease.
+
+        ## Conclusion:
+        The **Money Transfer Addon** is an excellent tool for Minecraft servers that want to introduce a virtual economy. Its user-friendly design, combined with useful features, creates a seamless experience for players looking to engage in financial transactions. By implementing this addon, servers can enhance player interaction and build a more vibrant in-game community.`
     },
     {
         title: "InvSee (Inventory Viewer)",
@@ -427,7 +497,24 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "invsee",
         pageHref: "#",
         isStable: false,
-        
+        longDes: `
+        ## Addon Overview: **Inventory See Addon (invsee)**
+
+        The **Inventory See Addon** allows players with specific permissions (like operators) to view the inventories of other players in Minecraft. This enhances server management and interaction, especially in multiplayer settings.
+
+        ## Features:
+
+        - **Command Activation**: Players can use the **!invsee <player_name>** command to view the inventory of another player, making it straightforward for operators to manage inventories.
+        - **Player Search**: The addon allows searching for players by name, even if the input is partially matched, providing flexibility when looking for players.
+        - **Detailed Inventory Display**: Displays a detailed view of the selected player’s inventory, including: Item names with formatting for readability, Slot numbers, Quantity of each item and Any enchantments present on items.
+        - **User-Friendly Error Handling**: No player is specified, The specified player cannot be found. and The target player’s inventory is empty.
+        - **Customizable Message Formatting**: Utilizes Minecraft chat formatting to enhance the visual appeal of the displayed inventory, making it easier to read.
+
+        ## User Experience:
+        Players with the "op" tag will find this addon helpful for monitoring other players' inventories without the need for physical access to their items. This can foster a sense of transparency and trust among players, as operators can ensure fairness in gameplay. The clear messages and organized inventory display contribute to a positive user experience, allowing for efficient inventory management.
+
+        ## Conclusion:
+        The **Inventory See Addon (invsee)** is an essential tool for Minecraft servers that require oversight of player inventories. By enabling operators to view other players' inventories, the addon promotes fair play and effective management. Its user-friendly design and detailed information presentation make it a valuable addition for server administrators and enhance the overall multiplayer experience.`
     },
     {
         title: "TeleportCompass (Compass Teleporter)",
@@ -436,7 +523,21 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "teleportcompass",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **Teleportation Compass** allows players with administrative privileges to quickly teleport to other online players using a recovery compass. This feature streamlines gameplay and enhances the management capabilities for server administrators.
+
+        ## Features:
+        - **Admin-Only Activation**: The teleportation feature is restricted to players with the "Admin" tag, ensuring that only authorized users can teleport, thus maintaining server integrity.
+        - **Recovery Compass Trigger**: Players can use the recovery compass to access the teleportation interface, creating an intuitive method for accessing teleportation options.
+        - **User-Friendly Interface**: Presents an Action Form with a list of online players, making it easy for admins to choose whom to teleport to. and Displays the number of players currently online for better context.
+        - **Visual Feedback**: When the player opens the interface, a sound effect is played to provide immediate feedback, enhancing the interactive experience.
+        - **Random Player Icons**: Each player button is displayed with a randomly chosen character icon (Steve or Alex), adding a playful element to the interface.
+
+        ## User Experience:
+        This addon significantly improves the administrative experience by providing a quick and efficient way to teleport to other players. The clean interface and sound feedback create a pleasant interaction for admins. The ability to see all online players at once reduces the time taken to find specific players and teleport to them, making server management smoother.
+
+        ## Conclusion:
+        The **Teleportation Addon** is a valuable tool for Minecraft server administrators, allowing them to quickly teleport to online players using the recovery compass. By keeping the feature exclusive to admins and providing an easy-to-navigate interface, the addon enhances gameplay efficiency and promotes effective server management. This adds convenience without compromising game integrity, making it a great addition for any multiplayer server.`
     },
     {
         title: "ColorName (Name Color Changer)",
@@ -445,7 +546,19 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "nametag",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **ColorName Addon** introduces an exciting way for players to customize their in-game names with various colors, enhancing individuality and expression on your server.
+
+        ## Features:
+        - **Custom Name Colors**: Players can change their name colors using a scoreboard objective called "Name Color." This feature allows for a personalized touch to each player’s appearance.
+        - **Comprehensive Color Guide**: The addon includes a helpful color guide displayed to players, detailing the available colors and their corresponding numbers. This ensures that players can easily find and select their preferred name color.
+        - **User-Friendly Command**: Players can simply use the scoreboard to set their desired name color, making the process intuitive and straightforward.
+
+        ## User Experience:
+        The **ColorName Addon** significantly enhances the player experience by allowing for greater self-expression. Players enjoy customizing their names, which can help in creating a unique identity within the server community. The color guide simplifies the selection process, ensuring everyone can easily choose their favorite shade without confusion.
+
+        ## Conclusion:
+        The **ColorName Addon** is a fantastic addition for any Minecraft server, encouraging player creativity and personalization. By enabling users to change their name colors, the addon fosters a more engaging and vibrant community atmosphere. Overall, it elevates the gameplay experience by adding a fun and interactive element to player interactions.`
     },
     {
         title: "ServerUI (Player Menu)",
@@ -454,7 +567,20 @@ The Distance Chat System addon significantly enhances the multiplayer experience
         readId: "serverui",
         pageHref: "#",
         isStable: true,
-        
+        longDes: `
+        The **Banking System Addon** provides an engaging banking experience for players, allowing them to manage their in-game currency through a simple and intuitive interface. This addon enhances gameplay by introducing features like depositing, withdrawing, and viewing player details, all while ensuring ease of use across different languages.
+
+        ## Features:
+        - **Currency Management**: Players can deposit and withdraw money using a user-friendly interface. The system utilizes scoreboards to track each player's money and bank balance, making transactions straightforward.
+        - **Multilingual Support**: The addon supports both English and Thai languages, allowing players to choose their preferred language. This feature enhances accessibility and ensures a wider audience can enjoy the banking experience.
+        - **Interactive Menus**: Players navigate through various menus using ActionForms and ModalForms, providing a visually appealing and easy-to-understand interface. Each menu option is clearly labeled, making it simple for users to perform transactions.
+        - **Detailed Player Information**: Players can view online player details, giving a sense of community and interaction within the server. The system lists all players currently online, fostering engagement and camaraderie.
+
+        ## User Experience:
+        The **Banking System Addon** significantly improves player interaction by making financial transactions engaging and straightforward. Players enjoy the convenience of managing their in-game currency through a clean and easy-to-navigate interface. The ability to select a language adds a personal touch, ensuring players feel comfortable while using the addon.
+
+        ## Conclusion:
+        The **Banking System Addon** is an excellent addition for any Minecraft server, enhancing the gameplay experience through effective currency management and user-friendly design. By allowing players to deposit and withdraw money easily while supporting multiple languages, this addon creates a more interactive and inclusive environment for all players. Overall, it adds depth and functionality to the game, making it a must-have for server administrators and players alike.`
     }
 ]
 
