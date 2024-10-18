@@ -5,10 +5,37 @@ import { addon } from "./addondataa.js"
 
 document.addEventListener("DOMContentLoaded", function () {
     generate()
+    setupEventListeners()
 })
 
 let currentItems = 0
 const itemsToShow = window.innerWidth < 768 ? 10 : 20
+let filteredAddons = []
+let originalAddonOrder = [...addon]
+
+function setupEventListeners() {
+    const searchBar = document.getElementById('addonSearchBar')
+    const stableFirstCheckbox = document.getElementById('stableFirstCheckbox')
+
+    searchBar.addEventListener('input', function () {
+        handleSearch()
+        if (searchBar.value) document.getElementById('search-tell').innerText = `There are ${filteredAddons.length} result has been found`
+        else document.getElementById('search-tell').innerText = ' '
+    })
+    stableFirstCheckbox.addEventListener('change', regenerateAddons)
+
+    searchBar.disabled = false
+    stableFirstCheckbox.disabled = false
+}
+
+function handleSearch() {
+    const searchTerm = document.getElementById('addonSearchBar').value.toLowerCase()
+    filteredAddons = originalAddonOrder.filter(item =>
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm)
+    )
+    regenerateAddons()
+}
 
 function create(
     title = "unrecorded title",
@@ -73,7 +100,7 @@ function create(
     }, 100)
 }
 
-function generate(stableFirst = false) {
+function generate() {
     var addonGrid = document.querySelector(".addon-grid .row")
     if (addonGrid) {
         while (addonGrid.firstChild) addonGrid.removeChild(addonGrid.firstChild)
@@ -82,8 +109,12 @@ function generate(stableFirst = false) {
         return
     }
 
-    var addons = addon
-    if (stableFirst) addons.sort((a, b) => a.isStable === b.isStable ? 0 : (a.isStable ? -1 : 1))
+    var addons = filteredAddons.length > 0 ? filteredAddons : [...originalAddonOrder]
+    const stableFirst = document.getElementById('stableFirstCheckbox').checked
+
+    if (stableFirst) {
+        addons.sort((a, b) => a.isStable === b.isStable ? 0 : (a.isStable ? -1 : 1))
+    }
 
     const addonsToDisplay = addons.slice(0, itemsToShow)
     addonsToDisplay.forEach((addon) => create(addon.title, addon.description, addon.imgSrc, addon.readId, addon.pageHref, addon.isStable))
@@ -93,7 +124,28 @@ function generate(stableFirst = false) {
     else noContent()
 }
 
+function regenerateAddons() {
+    currentItems = 0
+    generate()
+    checkBtn()
+}
+
+function checkBtn() {
+    const existingBtn = document.querySelector(".load-more")
+    const existingNoContent = document.querySelector(".no-content-message")
+
+    if (existingBtn && existingNoContent) existingBtn.remove()
+}
+
 function loadMoreBtn(addons) {
+    const existingBtn = document.querySelector(".load-more")
+    const existingNoContent = document.querySelector(".no-content-message")
+
+    if (existingBtn || existingNoContent) {
+        existingBtn.remove()
+        return
+    }
+
     const loadMoreBtn = document.createElement("button")
     loadMoreBtn.classList.add("btn", "btn-outline-primary", "mt-3", "load-more", "mx-auto", "d-block")
     loadMoreBtn.innerHTML = `<i class="fas fa-plus"></i> Load More`
@@ -104,6 +156,11 @@ function loadMoreBtn(addons) {
 }
 
 function loadMore(addons) {
+    const existingNoContent = document.querySelector(".no-content-message")
+    if (existingNoContent) {
+        document.querySelector(".load-more").remove()
+        return
+    }
     const nextItems = currentItems + itemsToShow
     const addonsToDisplay = addons.slice(currentItems, nextItems)
     addonsToDisplay.forEach((addon) => create(addon.title, addon.description, addon.imgSrc, addon.readId, addon.pageHref, addon.isStable))
@@ -118,6 +175,9 @@ function loadMore(addons) {
 }
 
 function noContent() {
+    const existingNoContent = document.querySelector(".no-content-message")
+    if (existingNoContent) existingNoContent.remove()
+
     const div = document.createElement("div")
     div.classList.add("no-content-message", "text-center", "mt-3", "col-12")
 
@@ -139,7 +199,8 @@ if (window.location.hostname !== '127.0.0.1') {
     window.addEventListener('contextmenu', ev => ev.preventDefault())
     document.addEventListener('dragstart', event => event.target.tagName.toLowerCase() === 'a' && event.preventDefault())
 }
-document.querySelector('.scroll-btn').addEventListener('click', function(e) {
+
+document.querySelector('.scroll-btn').addEventListener('click', function (e) {
     e.preventDefault()
     document.querySelector('#addons').scrollIntoView({
         behavior: 'smooth'
