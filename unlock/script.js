@@ -7,11 +7,18 @@ if (!get) {
 }
 
 window.onload = function () {
+    document.getElementById('unsub-previous').innerHTML = `
+    <div class="me-2">
+        <a href="../pages/#${get.readId}" class="btn btn-outline-secondary btn-lg">
+            <i class="fas fa-arrow-left" id="unsub-previous"></i> Previous
+        </a>
+    </div>`
     document.getElementById('dynamic_text').innerHTML = `To unlock <a>${get.title} </a> add-on, follow me in youtube~!`
     checkSub()
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelector('#warp').scrollIntoView({ behavior: 'smooth' })
     const banner = `../img/stock/${get.imgSrc}`
     const dynamic_banner = document.getElementById('dynamic_banner')
     dynamic_banner.src = banner
@@ -28,7 +35,7 @@ function checkSub() {
 
         buttonContainer.innerHTML = `
             <div class="me-2" style="margin-top: 9px;">
-                <a href="../" class="btn btn-outline-secondary btn-lg">
+                <a href="../pages/#${get.readId}" class="btn btn-outline-secondary btn-lg">
                     <i class="fas fa-arrow-left"></i> Previous
                 </a>
             </div>
