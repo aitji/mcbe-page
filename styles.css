@@ -16,6 +16,8 @@
     --border-card: #e0e0e0;
     --text-color: #333;
     --sub-text-color: #575a5e;
+    --highlight-color: #ffcccc;
+    --dark-red: #d03c3c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +31,27 @@
         --border-card: #2a2d2f;
         --text-color: #bdbbb8;
         --sub-text-color: #83817e;
+        --highlight-color: #b22222;
     }
+}
+
+.form-check-input {
+    margin-top: 5px;
+    background-color: var(--border-card) !important;
+    border-color: var(--border-card) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--red-hover) !important;
+    border-color: var(--red) !important;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 77, 77, 0.1) !important;
+}
+
+.form-check-input:active {
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.1) !important;
 }
 
 ::-webkit-scrollbar {
@@ -195,6 +217,10 @@ a {
 }
 
 @media (max-width: 768px) {
+    .form-check-input {
+        margin-top: 5px;
+    }
+
     .addon-card {
         flex: 1 1 100%;
         margin: 10px;

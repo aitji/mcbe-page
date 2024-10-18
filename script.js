@@ -19,7 +19,7 @@ function setupEventListeners() {
 
     searchBar.addEventListener('input', function () {
         handleSearch()
-        if (searchBar.value) document.getElementById('search-tell').innerText = `There are ${filteredAddons.length} result has been found`
+        if (searchBar.value) document.getElementById('search-tell').innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> There are ${filteredAddons.length} result has been found`
         else document.getElementById('search-tell').innerText = ' '
     })
     stableFirstCheckbox.addEventListener('change', regenerateAddons)
