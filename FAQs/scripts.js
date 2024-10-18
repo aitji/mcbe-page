@@ -77,51 +77,66 @@ function filterFAQs() {
 }
 
 function createFAQs() {
-    const container = document.createElement('div');
-    container.classList.add('container', 'my-5');
+    const container = document.createElement('div')
+    container.classList.add('container', 'my-5')
 
-    const list = document.createElement('div');
-    list.classList.add('list-group');
+    const list = document.createElement('div')
+    list.classList.add('list-group')
 
     faqs.forEach((faq, i) => {
-        const items = document.createElement('div');
-        items.classList.add('list-group-item', 'list-group-item-action', 'mb-2');
+        const items = document.createElement('div')
+        items.classList.add('list-group-item', 'list-group-item-action', 'mb-2')
 
-        const question = document.createElement('h5');
-        question.classList.add('mb-1', 'd-flex', 'align-items-center');
+        const question = document.createElement('h5')
+        question.classList.add('mb-1', 'd-flex', 'align-items-center')
 
-        const icon = document.createElement('i');
-        icon.classList.add('fa-solid', 'fa-angle-up', 'me-2');
+        const icon = document.createElement('i')
+        icon.classList.add('fa-solid', 'fa-angle-up', 'me-2')
 
-        question.appendChild(icon);
-        question.appendChild(document.createRange().createContextualFragment(faq.q));
+        question.appendChild(icon)
+        question.appendChild(document.createRange().createContextualFragment(faq.q))
 
-        const answer = document.createElement('p');
-        answer.classList.add('mb-1', 'left');
-        answer.innerHTML = faq.a;
+        const answer = document.createElement('p')
+        answer.classList.add('mb-1', 'left')
+        answer.innerHTML = faq.a
 
         if (i === 0) {
-            answer.classList.toggle('show');
-            icon.classList.toggle('fa-angle-up');
-            icon.classList.toggle('fa-angle-down');
+            answer.classList.toggle('show')
+            icon.classList.toggle('fa-angle-up')
+            icon.classList.toggle('fa-angle-down')
         }
 
         items.addEventListener('click', () => {
-            answer.classList.toggle('show');
-            icon.classList.toggle('fa-angle-up');
-            icon.classList.toggle('fa-angle-down');
-        });
+            answer.classList.toggle('show')
+            icon.classList.toggle('fa-angle-up')
+            icon.classList.toggle('fa-angle-down')
+        })
 
-        items.appendChild(question);
-        items.appendChild(answer);
-        list.appendChild(items);
-    });
+        items.appendChild(question)
+        items.appendChild(answer)
+        list.appendChild(items)
+    })
 
-    container.appendChild(list);
-    document.getElementById('faqs').appendChild(container);
+    container.appendChild(list)
+    document.getElementById('faqs').appendChild(container)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('addonSearchBar').addEventListener('input', filterFAQs)
     createFAQs()
+})
+
+document.querySelector('.scroll-btn').addEventListener('click', function (e) {
+    e.preventDefault()
+    const explainSection = document.querySelector('#explain')
+    explainSection.scrollIntoView({behavior: 'smooth'})
+
+    const faqItems = document.querySelectorAll('.list-group-item')
+    faqItems.forEach(item => {
+        const answer = item.querySelector('p')
+        const icon = item.querySelector('i')
+        answer.classList.add('show')
+        icon.classList.remove('fa-angle-up')
+        icon.classList.add('fa-angle-down')
+    })
 })
