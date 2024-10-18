@@ -7,12 +7,7 @@ if (!get) {
 }
 
 window.onload = function () {
-    document.getElementById('unsub-previous').innerHTML = `
-    <div class="me-2">
-        <a href="../pages/#${get.readId}" class="btn btn-outline-secondary btn-lg">
-            <i class="fas fa-arrow-left" id="unsub-previous"></i> Previous
-        </a>
-    </div>`
+    document.getElementById('unsub-previous').innerHTML = `<i class="fas fa-arrow-left" id="unsub-previous"></i> Previous`
     document.getElementById('dynamic_text').innerHTML = `To unlock <a>${get.title} </a> add-on, follow me in youtube~!`
     checkSub()
 }
