@@ -56,6 +56,7 @@ function create(
     img.classList.add("addon-img", "img-fluid", "rounded")
     img.src = `../img/stock/${imgSRC}`
     img.alt = title + " Image"
+    img.loading = 'lazy'
     card.appendChild(img)
 
     var hTitle = document.createElement("h3")
