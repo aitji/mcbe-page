@@ -35,6 +35,36 @@
     }
 }
 
+.list-group-item {
+    cursor: pointer;
+    background-color: var(--card-bg);
+    border-color: var(--border-card);
+    transition: all 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: var(--bg-color);
+}
+
+.list-group-item h5 {
+    color: var(--text-color);
+}
+
+.list-group-item p {
+    color: var(--sub-text-color);
+}
+
+.list-group-item p {
+    color: var(--sub-text-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.list-group-item p.show {
+    max-height: 100px;
+}
+
 .form-check-input {
     margin-top: 5px;
     background-color: var(--border-card) !important;
