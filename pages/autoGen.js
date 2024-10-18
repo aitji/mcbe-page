@@ -29,10 +29,10 @@ function gen(title, description, get) {
     const container = document.querySelector(".container")
     const stableTag = get.isStable ? "@stable" : "@beta"
     const stableMsg = get.isStable
-        ? "this addon was written in @stable no need to re-download after minecraft updates"
+        ? `<i class="fa-solid fa-circle-info"></i> This addon was written in @stable no need to re-download after minecraft updates`
         : `<i class="fa-solid fa-triangle-exclamation"></i> this addon was written in @beta after minecraft big update you may have to re-download this addon!`
     const betaApiMsg = get.isStable ? "" : "and enabled beta api in experimental features tabs"
-    const longDes = get.longDes || "(BETA: in near features each addon will have their own description, but at this moment no)"
+    const longDes = get.longDes || "note: in near features each addon will have their own description, but at this moment no sorry!"
     const findAddon = find_me.reduce((acc, finder) => get.readId.toLowerCase().includes(finder.url.toLowerCase()) ? finder.link.replace("_ver_", lastest_ver) : acc, '')
     const url = `../unlock#${get.readId}`
     const git = findAddon.replace('/raw/', '/tree/').replace('Download.mcpack', 'Addon')
@@ -50,7 +50,7 @@ function gen(title, description, get) {
     <div class="addon-details container mt-4 shadow">
         <h2 class="text-primary">${title}| <span class="tag ${get.isStable ? 'badge bg-success' : 'badge bg-warning'}">${stableTag}</span></h2>
         <a>Addon Version: <strong>${lastest_ver}</strong></a>
-        <p>${longDes || description}<br><a class="text-warning">${stableMsg}<br></a></p>
+        <p>${longDes || description}<br><a class="text-${!get.isStable ? 'warning' : 'info'}">${stableMsg}<br></a></p>
         
         <span<br></span>
         <h2 class="text-secondary">Installation:</h2>
@@ -64,7 +64,7 @@ function gen(title, description, get) {
             <li class="list-group-item">7. Now open <strong>Download.mcpack</strong> in Minecraft Bedrock Edition</li>
             <li class="list-group-item">8. After creating a world, install the addon ${betaApiMsg}</li>
         </ul>
-        <span<br></span>
+        <br>
         <h2 class="text-secondary">Download:</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
