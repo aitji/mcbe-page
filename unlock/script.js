@@ -1,47 +1,63 @@
 import { addon, find_me, lastest_ver } from "../addondataa.js"
+
 var hash = window.location.hash.substr(1)
 var get = addon.find(key => key.readId.toLocaleLowerCase() === hash.toLowerCase())
-try { get.imgSrc }
-catch { window.location.href = '../' }
+if (!get) {
+    window.location.href = '../'
+}
 
 window.onload = function () {
+    document.getElementById('dynamic_text').innerHTML = `เพื่อปลดล็อกแอดออน <a>${get.title} </a> กดติดตามเราหน่อยน้า~!`
     checkSub()
-    const cookieRe = document.querySelector(".recycle-bin")
-    cookieRe.addEventListener("click", () => resetCookies())
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const banner = `../img/stock/${get.imgSrc}`
-    document.getElementById('dynamic_banner').src = banner
-    document.getElementById('dynamic_text').innerHTML = `เพื่อปลดล็อกแอดออน <a>${get.title} </a> กดติดตามเราหน่อยน้า~!<a id="back"
-    href="../pages/#${get.readId}"> (ย้อนกลับไปดูแอดออนอื่น) </a>`
+    const dynamic_banner = document.getElementById('dynamic_banner')
+    dynamic_banner.src = banner
+    dynamic_banner.classList.add('rounded', 'shadow')
+    dynamic_banner.innerHTML = `เพื่อปลดล็อกแอดออน <a>${get.title} </a> กดติดตามเราหน่อยน้า~!`
 })
-
 
 function checkSub() {
     var buttonContainer = document.getElementById("buttonContainer")
     if (document.cookie.includes("subscribed=true")) {
-        simulateLoading(40)
-        setTimeout(function () {
-            document.getElementById('dynamic_text').innerHTML = `คุณสามารถโหลดแอดออน <a>${get.title} </a> ได้เลย~!<a id="back"
-                href="../pages/#${get.readId}"> (โหลดแล้วสามารถกดย้อนกลับที่นี่) </a>`
-            buttonContainer.innerHTML = "<p>ดูเหมือนว่ากดติดตามอยู่แล้วนิหน่า งั้นโหลดได้เลย ๆ</p><button id='subed'>โหลดแอดออน! 📥</button>"
-            const button = document.getElementById("subed")
+        simulateLoading(1)
 
-            button.addEventListener("click", () => redirectToAddon())
-        }, 900)
-    } else { }
+        document.getElementById('dynamic_text').innerHTML = `คุณสามารถโหลดแอดออน <a>${get.title}</a> ได้เลย~!`
+
+        buttonContainer.innerHTML = `
+            <div class="me-2" style="margin-top: 9px;">
+                <a href="../" class="btn btn-outline-secondary btn-lg">
+                    <i class="fas fa-arrow-left"></i> ย้อนกลับ
+                </a>
+            </div>
+            <div>
+                <button id='subed' class="btn btn-success btn-lg">
+                    <i class="fa-solid fa-download"></i> ดาวน์โหลด!
+                </button>
+            </div>
+        `
+
+        const button = document.getElementById("subed")
+        button.addEventListener("click", () => redirectToAddon())
+    }
 }
+
 
 document.getElementById("subscribeBtn").addEventListener("click", function () {
     if (!document.cookie.includes("subscribed=true")) {
         simulateLoading()
+        document.cookie = "subscribed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"
+        window.location.href = 'https://www.youtube.com/@aitji.?sub_confirmation=1'
+
         setTimeout(function () {
-            if (!document.cookie.includes("subscribed=true")) document.cookie = "subscribed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"
+            if (!document.cookie.includes("subscribed=true")) {
+                document.cookie = "subscribed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT"
+            }
+            showModal()
             checkSub()
-            window.location.href = "https://www.youtube.com/@aitji.?sub_confirmation=1"
         }, 3000)
-        checkSub()
     }
 })
 
@@ -56,20 +72,35 @@ function simulateLoading(de = 95) {
     }, 10)
 }
 
+function showModal() {
+    $('body').append(`
+        <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="subModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="subModalLabel">กดติดตามแล้ว!</h4>
+              </div>
+              <div class="modal-body">
+                คุณกดติดตามเรียบร้อยแล้ว! ขอบคุณมาก ตอนนี้โหลดแอดออนได้เลย!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">เยี่ยมเลย!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    `)
+    $('#subModal').modal('show')
+}
+
 function redirectToAddon() {
     var url = find_me.find(finder => get.readId.toLocaleLowerCase().includes(finder.url.toLowerCase())).link.replace("_ver_", lastest_ver)
     window.location.href = url
 
-    setTimeout(function () { window.location.href = `../pages#${get.readId}` }, 32000)
-}
-
-function resetCookies() {
-    if (document.cookie.length <= 0) {
-        alert(`🍪 เรายังไม่ได้เก็บคุ๊กกี้คุณเลย`)
-        return
-    }
-    if (confirm(`🍪 จะให้ลบข้อมูลคุ๊กกี้จริง ๆ หรอเราไม่ได้ใช้ 3rd คุ๊กกี้เลยนะ ;c\nข้อมูลคุ๊กกี้มีเพียง ${document.cookie.length} รายการ: ${document.cookie}`)) {
-        document.cookie = "subscribe= expires=Thu, 01 Jan 1970 00:00:00 GMT"
-        alert("✅ All cookie data has been reset.\nReFresh Pages NOW!")
-    }
+    setTimeout(function () {
+        window.location.href = `../pages#${get.readId}`
+    }, 32000)
 }

@@ -9,6 +9,42 @@
     <link rel="stylesheet" href="../styles.css">
     <title>@aitji's Website</title>
     <style>
+        :root {
+            --card-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --card-color: #101314;
+                --text-color: #bdbbb8;
+            }
+        }
+
+        .list-group {
+            background-color: var(--card-color);
+            border: 1px solid var(--text-color);
+            border-radius: 8px;
+        }
+
+        .list-group-item {
+            background-color: var(--card-color);
+            color: var(--text-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .list-group {
+                border-color: #444 !important;
+            }
+
+            .list-group-item {
+                border-color: #444 !important;
+                background-color: #181a1b !important;
+                color: #bdbbb8 !important;
+            }
+        }
+
+
         .hero-banner {
             position: relative;
             width: 100%;
@@ -37,7 +73,7 @@
         }
 
         .addon-details {
-            background-color: #f8f9fa;
+            background-color: var(--card-color);
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
@@ -50,6 +86,10 @@
 
         .list li {
             margin-bottom: 10px;
+        }
+
+        .container {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         a {
@@ -90,7 +130,7 @@
     </div>
 
     <script type="module" src="../pages/autoGen.js"></script>
-    <!-- build website page -->
+    <span><br></span>
 </body>
 
 </html>

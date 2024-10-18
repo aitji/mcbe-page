@@ -36,7 +36,7 @@ function create(
     card.appendChild(hTitle)
 
     var aDes = document.createElement("p")
-    aDes.classList.add("addon-description", "text-muted")
+    aDes.classList.add("addon-description", "text-muted", 'text-cc')
     aDes.textContent = des
     card.appendChild(aDes)
 

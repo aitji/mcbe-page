@@ -4,171 +4,154 @@
 <head>
     <meta property="og:title" content="@aitji's | Subscribe Gateway">
     <meta property="og:description" content="aitji's subscribe gateway before get da addon!">
-    <meta property="og:image"
-        content="../img/favicon.ico">
+    <meta property="og:image" content="../img/favicon.ico">
     <meta property="og:url" content="https://mcbe.vercel.app">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="icon"
-        href="../img/favicon.ico"
-        type="image/png">
+
+    <link rel="icon" href="../img/favicon.ico" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@aitji's | Subscribe Gateway</title>
+    <link rel="stylesheet" href="../styles.css">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Thai:wght@400;700&display=swap');
-        * { font-family: 'Roboto Thai', 'Roboto', Arial, sans-serif; }
-
-        body {
-            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #131415 10px, #131415 20px);
-            background-color: #181a1b;
-            color: #fff;
-            margin: 0;
-            padding: 0;
+        .loading-bar {
+            height: 5px;
+            background-color: #d9534f;
+            transition: width 0.4s ease;
         }
 
-        .container {
-            max-width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            box-sizing: border-box;
-            margin-left: 35%;
+        .img-circle {
+            width: 100px;
+            height: 100px;
         }
 
-        .banner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .banner img {
-            max-width: 58%;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-            border-radius: 5px;
-            border: 5px solid #181919;
-            box-shadow: 10px 10px #181919;
-        }
-
-        @media (max-width: 768px) {
-            .banner {max-width: 100%;}
-
-            .container {
-                max-width: 90%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                box-sizing: border-box;
-                margin-left: 5%;
-            }
+        .button-container {
+            margin-top: 20px;
         }
 
         .content {
-            background-color: #242727;
-            align-items: center;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 10px 10px #130e1264;
-        }
-
-        .loading-bar {
-            background-color: #444;
-            height: 20px;
-            margin-bottom: 20px;
+            text-align: center;
+            margin-top: 50px;
         }
 
         .youtube-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .youtube-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .youtube-info h2 {
-            font-size: 20px;
-            margin: 0;
+            margin-top: 20px;
         }
 
         .unlock-message {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            margin-top: 20px;
         }
 
-        .button-container {text-align: center;}
-
-        .button-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #d91015;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        .banner img {
+            width: 100%;
         }
 
-        .button-container button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        #subed {
+            margin-top: 10px;
+            background-color: #5cb85c;
+            color: white;
         }
 
-
-        .recycle-bin {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
+        #backButton {
+            margin-top: 20px;
         }
-        .recycle-bin-x {
-            position: fixed;
-            bottom: 12px;
-            right: 12px;
-            font-size: 34px;
-            cursor: pointer;
-        }
-
-        a {color: #d91015;}
-        a:hover {color: #ff2222;}
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <div class="banner">
-                <img src="../../img/banner.jpg" id="dynamic_banner" alt="aitji banner">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light banner">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="."><i class="fa-solid fa-at"></i>aitji</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <p class="nav-link">Navbar is on progress</p>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#support">Supports</a></li>
+                </ul>
             </div>
-            <br>
+        </div>
+    </nav>
+    <!-- Hero -->
+    <header class="hero" data-image="/img/banner.png">
+        <div class="container text-center">
+            <h1><i class="fa-solid fa-at"></i>aitji</h1>
+            <p>Hey There! I'm <a><i class="fa-solid fa-at"></i>aitji</a></p>
+        </div>
+    </header>
 
-            <div class="loading-bar"></div>
-            <div class="youtube-info">
-                <img src="../../img/icon.jpg" alt="aitji icon">
-                <h2>AitJi Gamer | @aitji</h2>
-            </div>
-            <p class="unlock-message" id="dynamic_text">เพื่อปลดล็อกแอดออน <a>unknow (addon)</a> กดติดตามเราหน่อยน้า~!<a id="back"
-                    href="../">ย้อนกลับไปดูแอดออนอื่น</a></p>
-            <div class="button-container" id="buttonContainer">
-                <button id="subscribeBtn">ติดตาม ➕</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="content text-center">
+                    <!-- Banner with responsive image -->
+                    <div class="banner">
+                        <img src="../../img/banner.jpg" id="dynamic_banner" alt="aitji banner"
+                            class="img-fluid rounded shadow">
+                    </div>
+
+                    <br>
+
+                    <!-- Loading bar -->
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active loading-bar" role="progressbar"
+                            style="width: 0%"></div>
+                    </div>
+
+                    <!-- YouTube Channel Info -->
+                    <div class="youtube-info">
+                        <img src="../../img/icon.jpg" alt="aitji icon" class="img-circle">
+                        <h2><i class="fab fa-youtube"></i> AitJi Gamer | @aitji</h2>
+                    </div>
+
+                    <!-- Unlock message -->
+                    <p class="unlock-message" id="dynamic_text">
+                        เพื่อปลดล็อกแอดออน <a>unknow (addon)</a> กดติดตามเราหน่อยน้า~!
+                    </p>
+
+                    <!-- Button Container -->
+                    <div class="text-center d-flex justify-content-center" id="buttonContainer">
+                        <!-- Back Button -->
+                        <div class="me-2">
+                            <a href="../" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-arrow-left"></i> ย้อนกลับ
+                            </a>
+                        </div>
+
+                        <!-- Subscribe Button -->
+                        <div>
+                            <button id="subscribeBtn" class="btn btn-danger btn-lg">
+                                <i class="fas fa-plus"></i> ติดตาม
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="recycle-bin-x">❌</div>
-    <div class="recycle-bin">🍪</div>
     <script type="module" src="../unlock/script.js"></script>
 </body>
 

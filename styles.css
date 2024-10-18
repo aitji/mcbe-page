@@ -6,38 +6,61 @@
     font-style: normal;
 }
 
+:root {
+    --bg-color: #fff;
+    --red: #ff4d4d;
+    --red-hover: #eb4444;
+    --nav-bg: #f4f9ff;
+    --card-bg: #f8f9fa;
+    --border-card: #e0e0e0;
+    --text-color: #333;
+    --sub-text-color: #575a5e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0e0f10;
+        --red: #d03c3c;
+        --red-hover: #a72121;
+        --nav-bg: #101213;
+        --card-bg: #101314;
+        --border-card: #2a2d2f;
+        --text-color: #bdbbb8;
+        --sub-text-color: #83817e;
+    }
+}
+
 ::-webkit-scrollbar {
-    width: 12px
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ff4d4d;
+    background-color: var(--red);
     border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #eb4444
+    background-color: var(--red-hover);
 }
 
 body {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Cera Round Pro', 'Arial', sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark-mode {
-    background-color: #202020;
-    color: #fff;
+.copy {
+    color: var(--text-color);
 }
 
 .navbar {
-    border-bottom: 2px solid #ff4d4d;
-    background-color: #f4f9ff;
+    border-bottom: 2px solid var(--red);
+    background-color: var(--nav-bg);
     border-radius: 8px;
     margin-bottom: -10px;
 }
@@ -45,28 +68,26 @@ body.dark-mode {
 .navbar-brand,
 .nav-link {
     margin-bottom: 0px;
-    color: #ff4d4d !important;
+    color: var(--red) !important;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
     text-decoration: underline;
-    color: #a72121;
+    color: var(--red-hover);
 }
-
 
 .addon-card {
     margin: 15px;
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-card);
     padding: 20px;
     padding-bottom: 50px;
     border-radius: 8px;
     flex: 1;
     min-width: 250px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
 
 .addon-card:hover {
@@ -97,12 +118,32 @@ body.dark-mode {
 }
 
 a {
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
 }
 
 .form-check {
     padding-top: 5px;
+}
+
+.form-control:disabled {
+    background-color: var(--bg-color);
+    color: var(--sub-text-color);
+}
+
+.addon-description {
+    color: var(--sub-text-color) !important;
+}
+
+#addonSearchBar {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color);
+    border: 1px solid var(--border-card);
+}
+
+#addonSearchBar::placeholder {
+    color: var(--sub-text-color) !important;
+    opacity: 0.7;
 }
 
 @media (max-width: 768px) {
