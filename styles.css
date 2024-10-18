@@ -54,6 +54,28 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.red-primary {
+    border: 2px solid var(--red);
+    color: var(--red-hover);
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.red-primary:hover {
+    border: 2px solid var(--red);
+    background-color: var(--red);
+    color: white;
+}
+
+.red-primary:active {
+    background-color: var(--red) !important;
+    border: 2px solid var(--red) !important;
+    color: white;
+    box-shadow: 0 0 3px var(--red-hover), 0 0 15px var(--red-hover);
+}
+
 .copy {
     color: var(--text-color);
 }

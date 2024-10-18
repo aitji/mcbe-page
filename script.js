@@ -80,7 +80,7 @@ function generate(stableFirst = false) {
 
     var addons = addon
     if (stableFirst) addons.sort((a, b) => a.isStable === b.isStable ? 0 : (a.isStable ? -1 : 1))
-    
+
     const addonsToDisplay = addons.slice(0, itemsToShow)
     addonsToDisplay.forEach((addon) => create(addon.title, addon.description, addon.imgSrc, addon.readId, addon.pageHref, addon.isStable))
     currentItems = addonsToDisplay.length
@@ -135,3 +135,9 @@ if (window.location.hostname !== '127.0.0.1') {
     window.addEventListener('contextmenu', ev => ev.preventDefault())
     document.addEventListener('dragstart', event => event.target.tagName.toLowerCase() === 'a' && event.preventDefault())
 }
+document.querySelector('.scroll-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#addons').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
