@@ -9,7 +9,8 @@
 :root {
     --bg-color: #fff;
     --red: #ff4d4d;
-    --red-hover: #eb4444;
+    --red-hover: hsl(0, 81%, 59%);
+    --blue: #0e66fd;
     --nav-bg: #f4f9ff;
     --card-bg: #f8f9fa;
     --border-card: #e0e0e0;
@@ -22,6 +23,7 @@
         --bg-color: #0e0f10;
         --red: #d03c3c;
         --red-hover: #a72121;
+        --blue: #00308b;
         --nav-bg: #101213;
         --card-bg: #101314;
         --border-card: #2a2d2f;
@@ -52,6 +54,19 @@ body {
     color: var(--text-color);
     font-family: 'Cera Round Pro', 'Arial', sans-serif;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
+    color: white;
 }
 
 .red-primary {
