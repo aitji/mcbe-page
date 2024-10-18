@@ -40,6 +40,7 @@ function gen(title, description, get) {
     container.innerHTML = `
     <section class="addon-grid container mt-5">
         <div class="hero-banner row justify-content-center">
+            <span><br></span>
             <div class="col-md-8 text-center">
                 <img class="addon-img img-fluid rounded shadow" src="../img/stock/${get.imgSrc}" alt="${get.title} Image">
             </div>
@@ -71,6 +72,9 @@ function gen(title, description, get) {
             </li>
             <li class="list-group-item">
                 <a href="${git}" class="btn-secondary fw-bold"><i class="fa-brands fa-github"></i> GitHub Code</a>
+            </li>
+            <li class="list-group-item">
+                <a href="../" class="btn-secondary fw-bold"><i class="fa-solid fa-backward"></i> Previous</a>
             </li>
         </ul>
     </div>
