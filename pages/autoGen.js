@@ -47,12 +47,12 @@ function gen(title, description, get) {
         </div>
     </section>
     
-    <div class="addon-details container mt-4">
+    <div class="addon-details container mt-4 shadow">
         <h2 class="text-primary">${title}| <span class="tag ${get.isStable ? 'badge bg-success' : 'badge bg-warning'}">${stableTag}</span></h2>
         <a>Addon Version: <strong>${lastest_ver}</strong></a>
         <p>${longDes || description}<br><a class="text-warning">${stableMsg}<br></a></p>
         
-        <br>
+        <span<br></span>
         <h2 class="text-secondary">Installation:</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">1. Click on <strong>${get.readId}-addon-${lastest_ver}.mcpack</strong> below</li>
@@ -64,7 +64,7 @@ function gen(title, description, get) {
             <li class="list-group-item">7. Now open <strong>Download.mcpack</strong> in Minecraft Bedrock Edition</li>
             <li class="list-group-item">8. After creating a world, install the addon ${betaApiMsg}</li>
         </ul>
-        <br>
+        <span<br></span>
         <h2 class="text-secondary">Download:</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -77,6 +77,7 @@ function gen(title, description, get) {
                 <a href="../" class="btn-secondary fw-bold"><i class="fa-solid fa-backward"></i> Previous</a>
             </li>
         </ul>
+        
     </div>
     <span><br></span>`
 }
