@@ -1,8 +1,8 @@
-# <img src="https://addonhub.vercel.app/img/favicon.ico" style="display: block; margin: auto; margin-bottom: 20px;"> @aitji's addon
+# <img src="https://addonhub.online/img/favicon.ico" style="display: block; margin: auto; margin-bottom: 20px;"> @aitji's addon
 
 Welcome to the addon! This addon (script) was created by me! to give a cool viwer on my channel!
 
-I highly recommend using [my website](https://addonhub.vercel.app/new) to download addon!
+I highly recommend using [my website](https://addonhub.online/new) to download addon!
 
 <hr>
  
@@ -27,6 +27,6 @@ I highly recommend using [my website](https://addonhub.vercel.app/new) to downlo
 - Discord: aitji
 
 ## How to download the addon
-Don't worry, it's easy! Just check out [my website](https://addonhub.vercel.app/new), if you can't read thai you may use translate (sorry!)
+Don't worry, it's easy! Just check out [my website](https://addonhub.online/new), if you can't read thai you may use translate (sorry!)
 
 the addon will be gride can choose.

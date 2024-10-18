@@ -588,7 +588,7 @@ The Distance Chat System addon significantly enhances the multiplayer experience
 export const find_me = [
     // http://127.0.0.1:5500/download/?lastest=antispam
     // http://127.0.0.1:5500/download/?ver1.20.40=antispam
-    // https://addonhub.vercel.app/download/?lastest=allchat
+    // https://addonhub.online/download/?lastest=allchat
     { url: "tpa", link: "https://github.com/aitji/aitji.addon/raw/main/Stable/tpa/Download.mcpack" },
     { url: "multiaddon", link: "https://github.com/aitji/multiAddon/releases/download/1.1.6/multiAddon.mcpack" },
     { url: "afk", link: "https://github.com/aitji/aitji.addon/raw/main/Other/AFK/Download.mcpack" },
