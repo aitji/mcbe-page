@@ -67,13 +67,18 @@ function filterFAQs() {
     const msg = document.getElementById('search-tell')
     const searchValue = document.getElementById('addonSearchBar').value.toLowerCase()
     const faqItems = document.querySelectorAll('.list-group-item')
-
+    var count = 0
     faqItems.forEach(item => {
         const questionText = item.querySelector('h5').innerText.toLowerCase()
-        item.style.display = questionText.includes(searchValue) ? '' : 'none'
+        if (questionText.includes(searchValue)) {
+            item.style.display = ''
+            count++
+        } else item.style.display = 'none'
     })
-    if (searchValue) msg.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> There are ${faqItems.length} FAQs result has been found`
+    if (searchValue) msg.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> There are ${count} FAQs result has been found`
     else msg.innerHTML = ''
+    const top = document.querySelector('#top')
+    top.scrollIntoView({ behavior: 'smooth' })
 }
 
 function createFAQs() {
@@ -129,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector('.scroll-btn').addEventListener('click', function (e) {
     e.preventDefault()
     const explainSection = document.querySelector('#explain')
-    explainSection.scrollIntoView({behavior: 'smooth'})
+    explainSection.scrollIntoView({ behavior: 'smooth' })
 
     const faqItems = document.querySelectorAll('.list-group-item')
     faqItems.forEach(item => {
