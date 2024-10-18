@@ -59,7 +59,7 @@ function create(
     card.appendChild(img)
 
     var hTitle = document.createElement("h3")
-    hTitle.innerHTML = `${title.split(' (')[0]} <a class="un-strong"> (${title.split(' (')[1]})</a>`
+    hTitle.innerHTML = `${title.split(' (')[0]} <a class="un-strong"> (${title.split(' (')[1]}</a>`
     card.appendChild(hTitle)
 
     var aDes = document.createElement("p")
