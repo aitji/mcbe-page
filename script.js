@@ -43,7 +43,7 @@ function create(
     var md = document.createElement("a")
     md.classList.add("read-more", "btn", "btn-outline-primary", "mt-2", "position-absolute")
     md.href = `../pages#${readId}`
-    md.textContent = "(อ่านเพิ่มเติม)"
+    md.textContent = "(Read More)"
     md.id = readId
 
     md.style.bottom = "10px"
