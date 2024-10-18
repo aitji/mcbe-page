@@ -32,7 +32,7 @@ function create(
     card.appendChild(img)
 
     var hTitle = document.createElement("h3")
-    hTitle.innerHTML = `<h3 class="addon-title mt-3 strong">${title.split(' (')[0]} <a class="un-strong"> (${title.split(' (')[1]}</a><h3>`
+    hTitle.innerHTML = `${title.split(' (')[0]} <a class="un-strong"> (${title.split(' (')[1]})</a>`
     card.appendChild(hTitle)
 
     var aDes = document.createElement("p")
@@ -62,10 +62,9 @@ function create(
 
     tagR.style.bottom = "10px"
     tagR.style.right = "10px"
-
     card.appendChild(tagR)
 
-    var addonGrid = document.querySelector(".row")
+    var addonGrid = document.querySelector(".addon-grid .row")
     addonGrid.appendChild(card)
 
     setTimeout(() => {
@@ -75,8 +74,13 @@ function create(
 }
 
 function generate(stableFirst = false) {
-    var addonGrid = document.querySelector(".addon-grid")
-    while (addonGrid.firstChild) addonGrid.removeChild(addonGrid.firstChild)
+    var addonGrid = document.querySelector(".addon-grid .row")
+    if (addonGrid) {
+        while (addonGrid.firstChild) addonGrid.removeChild(addonGrid.firstChild)
+    } else {
+        console.error("Addon grid row not found!")
+        return
+    }
 
     var addons = addon
     if (stableFirst) addons.sort((a, b) => a.isStable === b.isStable ? 0 : (a.isStable ? -1 : 1))
@@ -125,7 +129,7 @@ function noContent() {
 
     div.appendChild(btn)
 
-    const row = document.querySelector(".row")
+    const row = document.querySelector(".addon-grid .row")
     row.appendChild(div)
 }
 
@@ -136,8 +140,8 @@ if (window.location.hostname !== '127.0.0.1') {
     document.addEventListener('dragstart', event => event.target.tagName.toLowerCase() === 'a' && event.preventDefault())
 }
 document.querySelector('.scroll-btn').addEventListener('click', function(e) {
-    e.preventDefault();
+    e.preventDefault()
     document.querySelector('#addons').scrollIntoView({
         behavior: 'smooth'
-    });
-});
+    })
+})
